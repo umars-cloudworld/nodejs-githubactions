@@ -1,4 +1,4 @@
-name: first-github-action
+name: github-action
 on:
   push:
     branches:
