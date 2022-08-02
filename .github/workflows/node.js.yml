@@ -35,14 +35,14 @@ jobs:
         run: ssh staging "git pull https://github.com/umars-cloudworld/nodejs-githubactions.git || true"
            
       - name: Install
-        run: ssh staging 'cd rdicidr && npm install -y'
+        run: ssh staging 'cd nodejs-githubactions && npm install -y'
 
       - name: Lint
-        run: ssh staging 'cd rdicidr && npm run lint'
+        run: ssh staging 'cd nodejs-githubactions && npm run lint'
 
       - name: Kill previous Node
         run: ssh staging 'sudo killall node' 
 
       - name: Start the app
         timeout-minutes: 1 # Times out after 1 minute
-        run: ssh staging 'cd rdicidr && npm run start&'
+        run: ssh staging 'cd nodejs-githubactions && npm run start&'
